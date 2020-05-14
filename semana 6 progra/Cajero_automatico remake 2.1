@@ -1,0 +1,93 @@
+Algoritmo CajeroAutomatico
+	
+	Definir contador Como Entero
+	Definir retiro,nCuenta Como Entero
+	Definir cant Como Real
+	Definir nTarjeta Como Entero
+	Definir Salir Como caracter
+	
+	Saldo = 5000
+	contador = 1
+	
+		
+	
+	Mientras contador <= 3 hacer
+	
+		Escribir "Ingrese el Numero de Trajeta con 10 digitos"
+		Leer nTarjeta
+		Escribir "Digite su pin"
+		leer contraseña
+		
+		si contraseña = "1234" entonces
+			contador = contador + 1 
+			respuesta = 0
+			
+			exit = falso// para salir de la repeticion 
+			Mientras exit == Falso Hacer
+				Escribir "1: = Consultar tu saldo"
+				Escribir "2: = Depositar"
+				Escribir "3: = Retiro"
+				Escribir "4: = Transferencia"
+				Escribir "5: = Salir"
+				Leer respuesta
+				
+				Segun respuesta
+					1:
+						Escribir "Tu saldo actual es: ",saldo
+					2:
+						Escribir "¿Cuanto desea depositar? "
+						Leer deposito
+						saldo = saldo + deposito
+						Escribir "Tu saldo actual es: ",saldo
+					3:
+						Escribir "¿Cuanto desea retirar? "
+						leer retiro
+						si retiro > saldo Entonces
+							Escribir "Usted no dispone esa cantidad, Por favor ingrese otra cantidad"
+							Escribir "Tu saldo actual es: ",saldo
+						SiNo
+							saldo = saldo - retiro
+							Escribir "Tu saldo actual es: ",saldo
+							
+						FinSi
+					4:
+						Escribir "¿Cuanto dinero desea transferir? "
+						Leer cant
+						Escribir "Por favor ingrese el número de cuenta a quien desea realizar la transferencia"
+						Leer nCuenta
+						Si saldo < cant Entonces
+							Escribir "Usted no dispone esa cantidad, Por favor ingrese otra cantidad"
+						SiNo
+							Escribir "Su tranferencia fue exitosa"
+						FinSi
+						
+						
+					5:
+						Escribir "¿Estas seguro que deseas salir?"
+						Escribir "1: Yes"
+						Escribir "2: No"
+						Leer op
+						
+						
+						Si op == 1 Entonces 
+							
+							
+							Escribir "Que tenga un feliz día"                                                  
+							exit = Verdadero// si el usuario quiere salir 
+						SiNo 
+							Escribir "Elija una opción para continuar"
+						FinSi
+							
+					FinSegun
+					
+				
+				
+			FinMientras
+			///// el para que diga lo del mensaje o alcomo te e equicocaste con un sino 
+		
+		FinSi
+		
+	FinMientras
+	
+	
+FinAlgoritmo

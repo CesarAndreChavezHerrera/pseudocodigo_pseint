@@ -59,9 +59,29 @@ Algoritmo desviacion_y_media
 		datos_desorden[index]  = menor_ -1
  	FinPara
 	
+	Limpiar Pantalla
+	//calcular la mediana 
+	Imprimir "mediana"
+	
+	para x = n_dato-1 hasta 0 con paso -1 hacer
+		
+		Imprimir Sin Saltar mediana[x], " "
+	FinPara
+	Imprimir ""
+	Imprimir "La mediana es de:"
+	
+	si (n_dato mod 2) == 1 Entonces
+		Imprimir mediana[trunc(n_dato/2)]
+	SiNo
+		
+		Imprimir (mediana[(n_dato/2)]+mediana[(n_dato/2)-1])/2
+		
+	FinSi
+	
+	Imprimir ""
 	Imprimir "La media es de:"
 	Imprimir media
-	
+	Imprimir " "
 	Imprimir "Las desviacion estandar"
 	para x = 0 hasta n_dato-1 con paso 1 hacer
 		

@@ -2,7 +2,7 @@ Algoritmo Union_intersecion
 	
 	
 	// ejercutar con array en que comienzan con 1 y no con 0 
-	Definir n_a,n_b ,n_union, n_inter, menor_AB,mayor_AB, menor_A_inter_B, mayor_A_inter_B , menor_a, meno_b, ultimo_index como real
+	Definir anterior ,n_a,n_b ,n_union, n_inter, menor_AB,mayor_AB, menor_A_inter_B, mayor_A_inter_B , menor_a, meno_b, ultimo_index como real
 	Definir s como caracter 
 	
 	Imprimir "bienvenido aal calculador de conjuntos"
@@ -49,6 +49,7 @@ Algoritmo Union_intersecion
 	
 	//ver caul es el valor menor de todo el array
 	menor_AB = 0
+	anterior = menor_AB - 1
 	para x = 0 hasta n_union-1 con paso 1 hacer
 		
 		si menor_AB > sin_orden_union[x] entonces
@@ -83,18 +84,22 @@ Algoritmo Union_intersecion
 	s = "{ "
 	para x = 0 hasta n_union-1 con paso 1 hacer
 		
-		s = s + ConvertirATexto(union[x])
 		
-		si x == n_union-1 entonces
-			s = s +" }"
-		SiNo
-			s = s +", "
+		si anterior != union[x]
+			s = s + ConvertirATexto(union[x])
+			anterior = union[x]
+			si x == n_union-1 entonces
+				s = s +" }"
+			SiNo
+				s = s +", "
+			FinSi
 		FinSi
+		
 	FinPara
 	Imprimir s
 	
 	
-	
+	//intersecion inicio de intersecion
 	//// la intersecion 
 	
 	menor_A = 0
@@ -115,7 +120,10 @@ Algoritmo Union_intersecion
 		FinSi
 	FinPara
 	
+	
+	
 	n_inter = 0
+	
 	
 	para x = 0 Hasta n_a-1 Con Paso 1 Hacer
 		
@@ -128,6 +136,8 @@ Algoritmo Union_intersecion
 		FinPara
 		
 	FinPara
+	
+	
 	
 	Imprimir " "
 	Imprimir "La intersecion de A y B"

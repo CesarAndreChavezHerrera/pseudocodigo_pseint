@@ -29,7 +29,7 @@ Algoritmo desviacion_y_media
 		desviacion[x] = rc(subDesvia/n_dato)
 	FinPara
 	
-	
+	//
 	Imprimir "La media es de:"
 	Imprimir media
 	

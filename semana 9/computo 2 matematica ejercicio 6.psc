@@ -22,7 +22,7 @@ Algoritmo cambio_de_base
 	Definir opciones como caracter
 	definir subopciones como caracter
 	Definir salir_main, salir_sub como logico
-	
+	definir continuar como caracter
 	
 	definir binario_octal como caracter
 	
@@ -177,15 +177,22 @@ Algoritmo cambio_de_base
 							//pedir el primer dato //
 							//                     //
 							/////////////////////////
+							
 							Repetir
 								mensaje("Ingrese el numero en binario que desea convertir")
 								
 								leer binario_octal[0]
-								Limpiar Pantalla
 								
-							Hasta Que verificar(binario_octal[0],1) == Verdadero
+								Si verificar(binario_octal[0],2) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(binario_octal[0],2) == Verdadero
 							
-							
+							binario_octal[1] = Cambio_base(Decimal(binario_octal[0],2),8) 
+							mensaje("El numero en binario en octal es "+binario_octal[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
 							
 						Caso "2":
 							
@@ -194,6 +201,31 @@ Algoritmo cambio_de_base
 							//  octal a binario    //
 							//                     //
 							/////////////////////////
+							
+							
+							
+							/////////////////////////
+							//                     //
+							//pedir el primer dato //
+							//                     //
+							/////////////////////////
+							
+							Repetir
+								mensaje("Ingrese el numero en octal que desea convertir")
+								
+								leer binario_octal[0]
+								
+								Si verificar(binario_octal[0],8) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(binario_octal[0],8) == Verdadero
+							
+							//conver tir los numeros 
+							binario_octal[1] = Cambio_base(Decimal(binario_octal[0],8),2) 
+							mensaje("El numero en octal en binario es "+binario_octal[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
 							
 							
 							
@@ -286,7 +318,7 @@ SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	
 	Dimension caracteres_validos[22 + 1] // todos los caracteres del hexadecimal mas el punto
 	
-	
+	base = base - 1
 	respuesta = falso
 	
 	
@@ -366,7 +398,7 @@ FinSubProceso
 //                                                              //
 //////////////////////////////////////////////////////////////////
 
-Funcion numero_base_10 = decimal (numero_texto_evaluar, base_origen)
+Funcion numero_base_10 = Decimal (numero_texto_evaluar, base_origen)
 	
 	Definir numero_ como Entero
 	Definir numero_invertido_texto  como caracter
@@ -375,7 +407,7 @@ Funcion numero_base_10 = decimal (numero_texto_evaluar, base_origen)
 	
 	numero_ = 0
 	//invertir texto
-	numero_invertido_texto = invertir(numero_texto_evaluar)
+	numero_invertido_texto = Invertir(numero_texto_evaluar)
 	
 	si base_origen <=11 
 		
@@ -397,11 +429,11 @@ FinFuncion
 //                                                              //
 //////////////////////////////////////////////////////////////////
 
-Funcion texto_invertido = invertir(texto_)
+Funcion texto_invertido = Invertir(texto_)
 	
 	texto_invertido = ""
-	para x = Longitud(text_)-1 hasta 0 con paso -1
-		texto_invertido = texto_invertido + Subcadena(text_,x,x)
+	para x = Longitud(texto_)-1 hasta 0 con paso -1
+		texto_invertido = texto_invertido + Subcadena(texto_,x,x)
 	FinPara
 	
 FinFuncion
@@ -409,20 +441,29 @@ FinFuncion
 
 //////////////////////////////////////////////////////////////////
 //                                                              //
-//               converitir numero a octal                      //
+//               converitir numero a una base menor             //
 //                                                              //
 //////////////////////////////////////////////////////////////////
 
-Funcion numero_octal = octal(numero_texto_evaluar)
+Funcion numero_base_cambiada = Cambio_base(numero_texto_evaluar,base_deseada)
 	
+	numero_base_cambiada = ""
 	definir sobrante como real
 	definir residuo como real
 	Definir guardar_sobrante_octal como caracter 
 	
+	residuo = ConvertirANumero(numero_texto_evaluar)
 	Repetir
 		
+		sobrante = residuo mod base_deseada
+		residuo = trunc(residuo/base_deseada)
 		
-	Hasta Que residuo > 8
+		numero_base_cambiada = numero_base_cambiada + convertirAtexto(sobrante)
+		
+	Hasta Que residuo < base_deseada
+	numero_base_cambiada = numero_base_cambiada + ConvertirATexto(residuo)
 	
+	
+	numero_base_cambiada = Invertir(numero_base_cambiada)
 FinFuncion
 	

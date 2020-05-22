@@ -13,17 +13,29 @@ Algoritmo cambio_de_base
 	
 	leer numero_binario
 	Imprimir numero_binario
-	verificar()
+	
+	Imprimir verificar(numero_binario,1)
+	
+	
 FinAlgoritmo
 
 // ver si los caracteres son validos 
-SubAlgoritmo verificar()
-	//Definir respuesta como Logico
+
+
+SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	
+	
+	Definir respuesta como Logico
 	Definir caracteres_validos como Caracter
+	Definir reinicio como logico
 	
 	Dimension caracteres_validos[22 + 1] // todos los caracteres del hexadecimal mas el punto
 	
+	base = base + 1
+	respuesta = falso
+	
+	
+	//todos los caracteres validos para los numeros 
 	caracteres_validos[0] = "."
 	caracteres_validos[1] = "0"
 	// guardar los numeros del 1 al 9
@@ -45,11 +57,27 @@ SubAlgoritmo verificar()
 	FinPara
 	
 	
-	Para x = 0 hasta 22 con paso 1
-		Imprimir caracteres_validos[x]
+	//Para x = 0 hasta 22 con paso 1
+	//	Imprimir caracteres_validos[x]
+	//FinPara
+	
+	respuesta = verdadero 
+	Para x = 0 hasta Longitud(numero_texto_evaluar)-1 con paso 1
+		
+		reinicio = verdadero
+		para i = 0 Hasta base con paso 1
+			
+			si subcadena(numero_texto_evaluar,x,x) == caracteres_validos[i] entonces
+				reinicio = falso
+			FinSi
+			
+		FinPara
+		
+		si reinicio == Verdadero Entonces
+			
+			respuesta = falso
+		
+		FinSi
 	FinPara
-	
-	
-	
 	
 FinSubAlgoritmo

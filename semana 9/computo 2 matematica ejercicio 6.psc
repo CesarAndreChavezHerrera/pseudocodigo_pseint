@@ -24,6 +24,8 @@ Algoritmo cambio_de_base
 	Definir salir_main, salir_sub como logico
 	
 	
+	definir binario_octal como caracter
+	
 	//////////////////////////
 	//                      //
 	// inicializar variable //
@@ -42,7 +44,7 @@ Algoritmo cambio_de_base
 	////                              ////
 	//////////////////////////////////////
 	
-	
+	Dimension binario_octal[2]
 	
 	
 	
@@ -68,18 +70,16 @@ Algoritmo cambio_de_base
 		
 		
 	Limpiar Pantalla
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "_"
-	FinPara
-	Imprimir ""
-	imprimir "       Bienvenido a conversor de base numerica"
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "_"
-	FinPara
-	Imprimir ""
-	
+	mensaje("Bienvenido a conversor de base numerica")
 	Repetir	// salida del programa 
 		//entrar a las opciones 
+		
+		
+		//////////////////////////////////////////////////////////////////
+		//                                                              //
+		//                     primer menu                              //
+		//                                                              //
+		//////////////////////////////////////////////////////////////////
 		para a = 0 hasta 56 con paso 1
 			Imprimir  Sin Saltar  "#"
 		FinPara
@@ -108,24 +108,28 @@ Algoritmo cambio_de_base
 		segun opciones
 			caso "1":
 				
+				//////////////////////////////////////////////////////////////////
+				//                                                              //
+				//                     decimal a octal menu                     //
+				//                                                              //
+				//////////////////////////////////////////////////////////////////
+				
 				/////////////////////////
 				//                     //
 				//  sub menu binario   //
-				//      octal       //
+				//      octal          //
 				//                     //
 				/////////////////////////
 				
 				Repetir // loop para salir 
 					
-					para a = 0 hasta 56 con paso 1
-						Imprimir  Sin Saltar  "_"
-					FinPara
-					Imprimir ""
-					imprimir "       Conversion de binario a octal y viceversa"
-					para a = 0 hasta 56 con paso 1
-						Imprimir  Sin Saltar  "_"
-					FinPara
-					Imprimir ""
+					mensaje("Conversion de binario a octal y viceversa")
+					/////////////////////////
+					//                     //
+					//  opciones binaro    //
+					//      octal          //
+					//                     //
+					/////////////////////////
 					
 					para a = 0 hasta 56 con paso 1
 						Imprimir  Sin Saltar  "/"
@@ -141,6 +145,16 @@ Algoritmo cambio_de_base
 						Imprimir  Sin Saltar  "/"
 					FinPara
 					
+					
+					
+					
+					/////////////////////////
+					//                     //
+					//  logica binario     //
+					//      octal          //
+					//                     //
+					/////////////////////////
+					
 					leer opciones
 					Limpiar Pantalla
 					
@@ -148,23 +162,92 @@ Algoritmo cambio_de_base
 						Caso "1":
 							
 							
+							/////////////////////////
+							//                     //
+							//  binario a octal    //
+							//                     //
+							/////////////////////////
+							
+							
+							// pedir datos 
+							
+							
+							/////////////////////////
+							//                     //
+							//pedir el primer dato //
+							//                     //
+							/////////////////////////
+							Repetir
+								mensaje("Ingrese el numero en binario que desea convertir")
+								
+								leer binario_octal[0]
+								Limpiar Pantalla
+								
+							Hasta Que verificar(binario_octal[0],1) == Verdadero
+							
+							
 							
 						Caso "2":
 							
+							/////////////////////////
+							//                     //
+							//  octal a binario    //
+							//                     //
+							/////////////////////////
 							
 							
 							
 						caso "3":
 							
+							
+							/////////////////////////
+							//                     //
+							//     salir a menu    //
+							//                     //
+							/////////////////////////
 							salir_sub = verdadero	
 					FinSegun
 					
 				Hasta Que salir_sub == Verdadero
 			Caso "2":
 				
+				//////////////////////////////////////////////////////////////////
+				//                                                              //
+				//                     octal a hexadecimal                      //
+				//                                                              //
+				//////////////////////////////////////////////////////////////////
+				
+				/////////////////////////
+				//                     //
+				//  sub menu hexa      //
+				//      octal          //
+				//                     //
+				/////////////////////////
+				
 			Caso "3":
 				
+				
+				//////////////////////////////////////////////////////////////////
+				//                                                              //
+				//                    binario a hexadecimal                     //
+				//                                                              //
+				//////////////////////////////////////////////////////////////////
+				
+				/////////////////////////
+				//                     //
+				//  sub menu binario   //
+				//      hexadecimal    //
+				//                     //
+				/////////////////////////
+				
 			Caso "4":
+				
+				
+				/////////////////////////
+				//                     //
+				//        salir        //
+				//                     //
+				/////////////////////////
 				Imprimir "gracias por usar mi programa, vuelva pronto"
 				salir_main = verdadero
 		FinSegun
@@ -188,9 +271,12 @@ FinAlgoritmo
 
 
 
-// ver si los caracteres son validos 
 
-
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//         ver si los numeros ingresado son validos             //
+//                                                              //
+//////////////////////////////////////////////////////////////////
 SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	
 	
@@ -251,3 +337,25 @@ SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	FinPara
 	
 FinSubAlgoritmo
+
+
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//         imprimir mensaje entre llaves                        //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+
+SubProceso mensaje(mensaje_)
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+	imprimir "     ",mensaje_
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+FinSubProceso
+	

@@ -9,15 +9,88 @@
 
 Algoritmo cambio_de_base
 	
-	Definir numero_binario como Caracter
 	
-	leer numero_binario
-	Imprimir numero_binario
+	//////////////////////////////////////
+	////                              ////
+	////                              ////
+	////    definicion de variables   ////
+	////                              ////
+	////                              ////
+	//////////////////////////////////////
+	Definir _ como Caracter
 	
-	Imprimir verificar(numero_binario,1)
 	
+	
+	
+	
+	
+	
+	//////////////////////////////////////
+	////                              ////
+	////                              ////
+	////    definicion de array       ////
+	////                              ////
+	////                              ////
+	//////////////////////////////////////
+	
+	
+	
+	
+	
+	//////////////////////////////////////
+	////                              ////
+	////                              ////
+	////    creacion del menu         ////
+	////                              ////
+	////                              ////
+	//////////////////////////////////////
+	
+	
+	
+	// bienvenida
+	Limpiar Pantalla
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+	imprimir "       Bienvenido a conversor de base numerica"
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+	
+	//entrar a las opciones 
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "#"
+	FinPara
+	Imprimir Sin Saltar"#                                                       #"
+	Imprimir Sin Saltar"#     Escoja que tipo de conversion desea realizar      #"
+	Imprimir Sin Saltar"#                                                       #"
+	Imprimir Sin Saltar"#[1]conversion de binario a octal y viceversa           #"
+	Imprimir Sin Saltar"#[2]conversion de octal a hexadecimal y viceversar      #"
+	Imprimir Sin Saltar"#[3]conversion de binario a hexadecimal y viceversa     #"
+	Imprimir Sin Saltar"#                                                       #"
+	Imprimir Sin Saltar"#                                                       #"
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "#"
+	FinPara
+	
+	
+	
+//	
+//	leer numero_binario
+//	Imprimir numero_binario
+//	
+//	Imprimir verificar(numero_binario,1)
+//	
 	
 FinAlgoritmo
+
+
+
+
+
+
 
 // ver si los caracteres son validos 
 
@@ -67,6 +140,7 @@ SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 		reinicio = verdadero
 		para i = 0 Hasta base con paso 1
 			
+			//busca contal que uno de los numero este se considera valido por letra
 			si subcadena(numero_texto_evaluar,x,x) == caracteres_validos[i] entonces
 				reinicio = falso
 			FinSi

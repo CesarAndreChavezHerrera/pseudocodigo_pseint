@@ -20,6 +20,7 @@ Algoritmo cambio_de_base
 	//Definir _ como Caracter
 	
 	Definir opciones como caracter
+	definir subopciones como caracter
 	Definir salir_main, salir_sub como logico
 	
 	
@@ -63,20 +64,21 @@ Algoritmo cambio_de_base
 	
 	// bienvenida
 	
-	Repetir// salida del programa 
+	
 		
 		
-		Limpiar Pantalla
-		para a = 0 hasta 56 con paso 1
-			Imprimir  Sin Saltar  "_"
-		FinPara
-		Imprimir ""
-		imprimir "       Bienvenido a conversor de base numerica"
-		para a = 0 hasta 56 con paso 1
-			Imprimir  Sin Saltar  "_"
-		FinPara
-		Imprimir ""
-		
+	Limpiar Pantalla
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+	imprimir "       Bienvenido a conversor de base numerica"
+	para a = 0 hasta 56 con paso 1
+		Imprimir  Sin Saltar  "_"
+	FinPara
+	Imprimir ""
+	
+	Repetir	// salida del programa 
 		//entrar a las opciones 
 		para a = 0 hasta 56 con paso 1
 			Imprimir  Sin Saltar  "#"
@@ -106,6 +108,58 @@ Algoritmo cambio_de_base
 		segun opciones
 			caso "1":
 				
+				/////////////////////////
+				//                     //
+				//  sub menu binario   //
+				//      octal       //
+				//                     //
+				/////////////////////////
+				
+				Repetir // loop para salir 
+					
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "_"
+					FinPara
+					Imprimir ""
+					imprimir "       Conversion de binario a octal y viceversa"
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "_"
+					FinPara
+					Imprimir ""
+					
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//    Escoja que tipo de conversion quiere realizar    //"
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//[1]conversion de binario a octal                     //"
+					Imprimir Sin Saltar"//[2]conversion de octal a binario                     //"
+					Imprimir Sin Saltar"//[3]volver al menu principal                          //"
+					Imprimir Sin Saltar"//                                                     //"
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					
+					leer opciones
+					Limpiar Pantalla
+					
+					segun opciones 
+						Caso "1":
+							
+							
+							
+						Caso "2":
+							
+							
+							
+							
+						caso "3":
+							
+							salir_sub = verdadero	
+					FinSegun
+					
+				Hasta Que salir_sub == Verdadero
 			Caso "2":
 				
 			Caso "3":

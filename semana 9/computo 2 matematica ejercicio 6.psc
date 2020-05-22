@@ -286,28 +286,27 @@ SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	
 	Dimension caracteres_validos[22 + 1] // todos los caracteres del hexadecimal mas el punto
 	
-	base = base + 1
+	
 	respuesta = falso
 	
 	
 	//todos los caracteres validos para los numeros 
-	caracteres_validos[0] = "."
-	caracteres_validos[1] = "0"
+	caracteres_validos[0] = "0"
 	// guardar los numeros del 1 al 9
-	para x = 2 hasta 10 con paso 1
-		caracteres_validos[x] = ConvertirATexto(x-1)
+	para x = 1 hasta 9 con paso 1
+		caracteres_validos[x] = ConvertirATexto(x)
 	FinPara
 	
 	
-	caracteres_validos[11] = "a"
-	caracteres_validos[12] = "b"
-	caracteres_validos[13] = "c"
-	caracteres_validos[14] = "d"
-	caracteres_validos[15] = "e"
-	caracteres_validos[16] = "f"
+	caracteres_validos[10] = "a"
+	caracteres_validos[11] = "b"
+	caracteres_validos[12] = "c"
+	caracteres_validos[13] = "d"
+	caracteres_validos[14] = "e"
+	caracteres_validos[15] = "f"
 	
 	// guardar las letras mayuscula  
-	para x = 11 hasta 16 con paso 1
+	para x = 10 hasta 15 con paso 1
 		caracteres_validos[x+6] = Mayusculas(caracteres_validos[x])
 	FinPara
 	
@@ -358,4 +357,36 @@ SubProceso mensaje(mensaje_)
 	FinPara
 	Imprimir ""
 FinSubProceso
+
+
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//         converitir numero a decimal                          //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+Funcion numero_base_10 = decimal (numero_texto_evaluar, base_origen)
+	
+	Definir numero_ como Entero
+	Definir numero_invertido_texto  como caracter
+	
+	numero_invertido_texto = ""
+	
+	numero_ = 0
+	//invertir texto
+	para x = Longitud(numero_texto_evaluar)-1 hasta 0 con paso -1
+		numero_invertido_texto = numero_invertido_texto + Subcadena(numero_texto_evaluar,x,x)
+	FinPara
+	
+	si base_origen <=11 
+		
+		para _ = 0 hasta Longitud(numero_invertido_texto)-1 con paso 1
+			numero_ = numero_ + ((ConvertirANumero(subcadena(numero_invertido_texto,_,_))) * (base_origen ^ _ )   )
+		FinPara
+	
+	FinSi
+	
+	numero_base_10 = numero_
+FinFuncion
 	

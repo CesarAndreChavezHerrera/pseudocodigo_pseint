@@ -17,13 +17,21 @@ Algoritmo cambio_de_base
 	////                              ////
 	////                              ////
 	//////////////////////////////////////
-	Definir _ como Caracter
+	//Definir _ como Caracter
+	
+	Definir opciones como caracter
+	Definir salir_main, salir_sub como logico
 	
 	
+	//////////////////////////
+	//                      //
+	// inicializar variable //
+	//                      //
+	//////////////////////////
 	
 	
-	
-	
+	salir_main = Falso
+	salir_sub = Falso
 	
 	//////////////////////////////////////
 	////                              ////
@@ -47,34 +55,68 @@ Algoritmo cambio_de_base
 	
 	
 	
+	/////////////////////////
+	//                     //
+	//     primer menu     //
+	//                     //
+	/////////////////////////
+	
 	// bienvenida
-	Limpiar Pantalla
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "_"
-	FinPara
-	Imprimir ""
-	imprimir "       Bienvenido a conversor de base numerica"
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "_"
-	FinPara
-	Imprimir ""
 	
-	//entrar a las opciones 
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "#"
-	FinPara
-	Imprimir Sin Saltar"#                                                       #"
-	Imprimir Sin Saltar"#     Escoja que tipo de conversion desea realizar      #"
-	Imprimir Sin Saltar"#                                                       #"
-	Imprimir Sin Saltar"#[1]conversion de binario a octal y viceversa           #"
-	Imprimir Sin Saltar"#[2]conversion de octal a hexadecimal y viceversar      #"
-	Imprimir Sin Saltar"#[3]conversion de binario a hexadecimal y viceversa     #"
-	Imprimir Sin Saltar"#                                                       #"
-	Imprimir Sin Saltar"#                                                       #"
-	para a = 0 hasta 56 con paso 1
-		Imprimir  Sin Saltar  "#"
-	FinPara
-	
+	Repetir// salida del programa 
+		
+		
+		Limpiar Pantalla
+		para a = 0 hasta 56 con paso 1
+			Imprimir  Sin Saltar  "_"
+		FinPara
+		Imprimir ""
+		imprimir "       Bienvenido a conversor de base numerica"
+		para a = 0 hasta 56 con paso 1
+			Imprimir  Sin Saltar  "_"
+		FinPara
+		Imprimir ""
+		
+		//entrar a las opciones 
+		para a = 0 hasta 56 con paso 1
+			Imprimir  Sin Saltar  "#"
+		FinPara
+		Imprimir Sin Saltar"#                                                       #"
+		Imprimir Sin Saltar"#     Escoja que tipo de conversion desea realizar      #"
+		Imprimir Sin Saltar"#                                                       #"
+		Imprimir Sin Saltar"#[1]conversion de binario a octal y viceversa           #"
+		Imprimir Sin Saltar"#[2]conversion de octal a hexadecimal y viceversar      #"
+		Imprimir Sin Saltar"#[3]conversion de binario a hexadecimal y viceversa     #"
+		Imprimir Sin Saltar"#[4]salir del programa                                  #"
+		Imprimir Sin Saltar"#                                                       #"
+		para a = 0 hasta 56 con paso 1
+			Imprimir  Sin Saltar  "#"
+		FinPara
+		
+		/////////////////////////
+		//                     //
+		//  primera de logica  //
+		//      opciones       //
+		//                     //
+		/////////////////////////
+		
+		leer opciones
+		Limpiar Pantalla
+		
+		segun opciones
+			caso "1":
+				
+			Caso "2":
+				
+			Caso "3":
+				
+			Caso "4":
+				Imprimir "gracias por usar mi programa, vuelva pronto"
+				salir_main = verdadero
+		FinSegun
+		
+		
+	Hasta Que salir_main == Verdadero
 	
 	
 //	

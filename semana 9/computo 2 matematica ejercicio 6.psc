@@ -375,18 +375,54 @@ Funcion numero_base_10 = decimal (numero_texto_evaluar, base_origen)
 	
 	numero_ = 0
 	//invertir texto
-	para x = Longitud(numero_texto_evaluar)-1 hasta 0 con paso -1
-		numero_invertido_texto = numero_invertido_texto + Subcadena(numero_texto_evaluar,x,x)
-	FinPara
+	numero_invertido_texto = invertir(numero_texto_evaluar)
 	
 	si base_origen <=11 
 		
 		para _ = 0 hasta Longitud(numero_invertido_texto)-1 con paso 1
 			numero_ = numero_ + ((ConvertirANumero(subcadena(numero_invertido_texto,_,_))) * (base_origen ^ _ )   )
 		FinPara
-	
+	SiNo
+		
+		Imprimir "base fuera de rango"
+		
 	FinSi
 	
-	numero_base_10 = numero_
+	numero_base_10 = ConvertirATexto(numero_)
+FinFuncion
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//               invertir texto                                 //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+Funcion texto_invertido = invertir(texto_)
+	
+	texto_invertido = ""
+	para x = Longitud(text_)-1 hasta 0 con paso -1
+		texto_invertido = texto_invertido + Subcadena(text_,x,x)
+	FinPara
+	
+FinFuncion
+
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//               converitir numero a octal                      //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+Funcion numero_octal = octal(numero_texto_evaluar)
+	
+	definir sobrante como real
+	definir residuo como real
+	Definir guardar_sobrante_octal como caracter 
+	
+	Repetir
+		
+		
+	Hasta Que residuo > 8
+	
 FinFuncion
 	

@@ -44,7 +44,7 @@ Algoritmo cambio_de_base
 	Definir salir_main, salir_sub como logico
 	definir continuar como caracter
 	
-	definir binario_octal como caracter
+	definir repuesta como caracter
 	
 	//////////////////////////
 	//                      //
@@ -64,7 +64,7 @@ Algoritmo cambio_de_base
 	////                              ////
 	//////////////////////////////////////
 	
-	Dimension binario_octal[2]
+	Dimension respuesta[2]
 	
 	
 	
@@ -165,7 +165,7 @@ Algoritmo cambio_de_base
 						Imprimir  Sin Saltar  "/"
 					FinPara
 					
-					
+					salir_sub = Falso
 					
 					
 					/////////////////////////
@@ -201,18 +201,18 @@ Algoritmo cambio_de_base
 							Repetir
 								mensaje("Ingrese el numero en binario que desea convertir")
 								
-								leer binario_octal[0]
+								leer respuesta[0]
 								
-								Si verificar(binario_octal[0],2) == falso
+								Si verificar(respuesta[0],2) == falso
 									Limpiar Pantalla
 								FinSi
 								
 								
-							Hasta Que verificar(binario_octal[0],2) == Verdadero
+							Hasta Que verificar(respuesta[0],2) == Verdadero
 							
-							binario_octal[1] = Cambio_base(Decimal(binario_octal[0],2),8) 
+							respuesta[1] = Cambio_base(Decimal(respuesta[0],2),8) 
 							
-							mensaje("El numero en binario en octal es "+binario_octal[1])
+							mensaje("El numero en binario en octal es "+respuesta[1])
 							
 							
 							Imprimir "presione Enter para continuar "
@@ -238,16 +238,16 @@ Algoritmo cambio_de_base
 							Repetir
 								mensaje("Ingrese el numero en octal que desea convertir")
 								
-								leer binario_octal[0]
+								leer respuesta[0]
 								
-								Si verificar(binario_octal[0],8) == falso
+								Si verificar(respuesta[0],8) == falso
 									Limpiar Pantalla
 								FinSi
-							Hasta Que verificar(binario_octal[0],8) == Verdadero
+							Hasta Que verificar(respuesta[0],8) == Verdadero
 							
 							//conver tir los numeros 
-							binario_octal[1] = Cambio_base(Decimal(binario_octal[0],8),2) 
-							mensaje("El numero en octal en binario es "+binario_octal[1]) 
+							respuesta[1] = Cambio_base(Decimal(respuesta[0],8),2) 
+							mensaje("El numero en octal en binario es "+respuesta[1]) 
 							Imprimir "presione Enter para continuar "
 							leer continuar 
 							Limpiar Pantalla
@@ -281,6 +281,106 @@ Algoritmo cambio_de_base
 				//                     //
 				/////////////////////////
 				
+				
+				Repetir
+					
+					mensaje("Conversion de hexadecimal a octal viceversa")
+					
+					
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//    Escoja que tipo de conversion quiere realizar    //"
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//[1]conversion de hexadecimal a octal                 //"
+					Imprimir Sin Saltar"//[2]conversion de octal a hexadecimal                 //"
+					Imprimir Sin Saltar"//[3]volver al menu principal                          //"
+					Imprimir Sin Saltar"//                                                     //"
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					
+					leer opciones 
+					salir_sub = Falso
+					Limpiar Pantalla
+					
+					
+					/////////////////////////
+					//                     //
+					//  logica hexa        //
+					//      octal          //
+					//                     //
+					/////////////////////////
+					
+					
+					Segun opciones
+						
+						
+						Caso "1":
+							/////////////////////////
+							//                     //
+							//     hexa a octal    //
+							//                     //
+							/////////////////////////
+							
+							Repetir
+								mensaje("Ingrese el numero en hexadecimal que desea convertir")
+								
+								leer respuesta[0]
+								
+								Si verificar(respuesta[0],23) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(respuesta[0],23) == Verdadero
+							
+							
+							respuesta[1] = Cambio_base(Hexa_decimal(respuesta[0]),8)
+							
+							mensaje("El numero en octal en octal es "+respuesta[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
+							
+						Caso "2":
+							/////////////////////////
+							//                     //
+							//     octal a hexa    //
+							//                     //
+							/////////////////////////
+							
+							Repetir
+								mensaje("Ingrese el numero en octal que desea convertir")
+								
+								leer respuesta[0]
+								
+								Si verificar(respuesta[0],8) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(respuesta[0],8) == Verdadero
+							
+							
+							respuesta[1] = Hexa_(Decimal(respuesta[0],8))
+							
+							mensaje("El numero en octal en hexadecimal es "+respuesta[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
+							
+							
+						caso "3":
+							/////////////////////////
+							//                     //
+							//     salir a menu    //
+							//                     //
+							/////////////////////////
+							salir_sub = Verdadero
+							
+					FinSegun
+					Limpiar Pantalla
+					
+				Hasta Que salir_sub == Verdadero
+				
 			Caso "3":
 				
 				
@@ -296,6 +396,13 @@ Algoritmo cambio_de_base
 				//      hexadecimal    //
 				//                     //
 				/////////////////////////
+				
+				
+				
+				
+				
+				
+				
 				
 			Caso "4":
 				
@@ -422,7 +529,7 @@ SubProceso mensaje(mensaje_)
 		Imprimir  Sin Saltar  "_"
 	FinPara
 	Imprimir ""
-	imprimir "     ",mensaje_
+	imprimir "   ",mensaje_
 	para a = 0 hasta 56 con paso 1
 		Imprimir  Sin Saltar  "_"
 	FinPara
@@ -535,22 +642,31 @@ Funcion numero_hexa = Hexa_(numero_texto_evaluar)
 		
 		sobrante = residuo mod 16 // hace la divicion modular para conseguir residuo 
 		
-		si sobrante > 10 // si es valor mayor a sobrante solo lo guarda
-			guardar_sobrante = guardar_sobrante + "@"+convertirAtexto(sobrante)
-		SiNo //lo guarda para pero con un 0 adelane 
-			guardar_sobrante = guardar_sobrante + "@"+"0"+convertirAtexto(sobrante)
-			
+		
+		si residuo >= 16 
+			si sobrante > 10 // si es valor mayor a sobrante solo lo guarda
+				guardar_sobrante = guardar_sobrante + "@"+convertirAtexto(sobrante)
+			SiNo //lo guarda para pero con un 0 adelane 
+				guardar_sobrante = guardar_sobrante + "@"+"0"+convertirAtexto(sobrante)
+				
+			FinSi
 		FinSi
 		// divide 
-		residuo = trunc(residuo/16)
+		
+		
+		si residuo >= 16 
+			residuo = trunc(residuo/16)
+		FinSi
+		
 	Hasta Que residuo <= 16 // hasta que sea menor a 16
 	
 	
-	si residuo > 10//vemos si el residuo es mayor a 9
+	si residuo >= 10//vemos si el residuo es mayor a 9
 		guardar_sobrante = guardar_sobrante + "@"+convertirAtexto(residuo)
 	SiNo
 		guardar_sobrante = guardar_sobrante + "@"+"0"+convertirAtexto(residuo)
 	FinSi
+	
 	
 	
 	//LA ARROBA ES PARA DETERMINAR DONDE COMIENZA EL NUMERO SIMPLE SERA DE 2 DIGITOS 
@@ -559,7 +675,7 @@ Funcion numero_hexa = Hexa_(numero_texto_evaluar)
 		si Subcadena(guardar_sobrante,x,x) == "@"
 			//Imprimir Subcadena(guardar_sobrante,x+1,x+2)
 			filtro = ConvertirANumero(Subcadena(guardar_sobrante,x+1,x+2))
-			//Imprimir filtro
+			
 			
 			
 			//CAMBIA EL VALOR MAYORES DE 10 POR LETRAS 
@@ -605,7 +721,7 @@ FinFuncion
 //                                                              //
 //////////////////////////////////////////////////////////////////
 
-Funcion decimal = Hexa_decimal (numero_texto_evaluar)
+Funcion resultado = Hexa_decimal (numero_texto_evaluar)
 	
 	definir hexa ,decimal_ Como Caracter
 	Definir exponente, result Como Entero
@@ -689,7 +805,7 @@ Funcion decimal = Hexa_decimal (numero_texto_evaluar)
 		
 	FinPara
 	
-	decimal = result
+	resultado = ConvertirATexto(result)
 FinFuncion
 
 

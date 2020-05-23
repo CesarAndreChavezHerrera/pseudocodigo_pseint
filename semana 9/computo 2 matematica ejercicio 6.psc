@@ -7,6 +7,26 @@
 
 
 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                              inicio del programa                                                      //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 Algoritmo cambio_de_base
 	
 	
@@ -304,8 +324,19 @@ FinAlgoritmo
 
 
 
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                              Funciones que usa el sistema                                             //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+//                                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -567,6 +598,99 @@ FinFuncion
 
 
 
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//         converitir numero en 16 a una base 10                //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+Funcion decimal = Hexa_decimal (numero_texto_evaluar)
+	
+	definir hexa ,decimal_ Como Caracter
+	Definir exponente, result Como Entero
+	
+	hexa = ""
+	decimal_ = ""
+	hexa = Invertir(numero_texto_evaluar)
+	
+	//separar los dijitos 
+	para x = 0 hasta Longitud(hexa)-1 Con Paso 1
+		
+		decimal_ = decimal_+"@"+Subcadena(hexa,x,x)
+	FinPara
+	//Imprimir decimal_
+	//limpiar hexa
+	hexa = ""
+	para x = 0 hasta Longitud(decimal_)-1 Con Paso 1
+		
+		si Subcadena(decimal_,x,x) =="@"
+			
+			hexa= hexa + "@"
+			Segun Subcadena(decimal_,x+1,x+1)
+				
+				caso "A":
+					hexa = hexa + "10"
+				caso "a":
+					hexa = hexa + "10"
+					
+				Caso "B":
+					hexa = hexa + "11"
+				Caso "b":
+					hexa = hexa + "11"
+					
+				Caso "C":
+					hexa = hexa + "12"
+				Caso "c":
+					hexa = hexa + "12"	
+					
+				Caso "D":
+					hexa = hexa + "13"
+					
+				Caso "d":
+					hexa = hexa + "13"
+					
+				Caso "E":
+					hexa = hexa + "14"
+					
+				Caso "e":
+					hexa = hexa + "14"
+					
+				Caso "F":
+					hexa = hexa + "15"
+					
+				Caso "f":
+					hexa = hexa + "15"
+					
+					
+				De Otro Modo:
+					hexa = hexa+"0" +Subcadena(decimal_,x+1,x+1)
+			FinSegun
+			
+		FinSi
+	FinPara
+	//Imprimir hexa
+	
+	
+	
+	//comvertir a decimal
+	
+	exponente = 0
+	result = 0
+	
+	para x = 0 hasta Longitud(hexa)-1 Con Paso 1
+		
+		si Subcadena(hexa,x,x) == "@"
+			
+			result = result+(ConvertirANumero(Subcadena(hexa,x+1,x+2)) *(16^exponente))
+			
+			exponente = exponente +1
+		FinSi
+		
+	FinPara
+	
+	decimal = result
+FinFuncion
 
 
 

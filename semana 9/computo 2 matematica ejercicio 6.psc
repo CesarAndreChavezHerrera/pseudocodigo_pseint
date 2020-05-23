@@ -186,10 +186,15 @@ Algoritmo cambio_de_base
 								Si verificar(binario_octal[0],2) == falso
 									Limpiar Pantalla
 								FinSi
+								
+								
 							Hasta Que verificar(binario_octal[0],2) == Verdadero
 							
 							binario_octal[1] = Cambio_base(Decimal(binario_octal[0],2),8) 
-							mensaje("El numero en binario en octal es "+binario_octal[1]) 
+							
+							mensaje("El numero en binario en octal es "+binario_octal[1])
+							
+							
 							Imprimir "presione Enter para continuar "
 							leer continuar 
 							Limpiar Pantalla
@@ -309,6 +314,8 @@ FinAlgoritmo
 //         ver si los numeros ingresado son validos             //
 //                                                              //
 //////////////////////////////////////////////////////////////////
+
+
 SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	
 	
@@ -351,6 +358,7 @@ SubAlgoritmo respuesta = verificar(numero_texto_evaluar ,base)
 	Para x = 0 hasta Longitud(numero_texto_evaluar)-1 con paso 1
 		
 		reinicio = verdadero
+		
 		para i = 0 Hasta base con paso 1
 			
 			//busca contal que uno de los numero este se considera valido por letra
@@ -401,7 +409,7 @@ FinSubProceso
 Funcion numero_base_10 = Decimal (numero_texto_evaluar, base_origen)
 	
 	Definir numero_ como Entero
-	Definir numero_invertido_texto  como caracter
+	Definir numero_invertido_texto como caracter
 	
 	numero_invertido_texto = ""
 	
@@ -412,7 +420,9 @@ Funcion numero_base_10 = Decimal (numero_texto_evaluar, base_origen)
 	si base_origen <=11 
 		
 		para _ = 0 hasta Longitud(numero_invertido_texto)-1 con paso 1
+			
 			numero_ = numero_ + ((ConvertirANumero(subcadena(numero_invertido_texto,_,_))) * (base_origen ^ _ )   )
+			
 		FinPara
 	SiNo
 		
@@ -432,6 +442,7 @@ FinFuncion
 Funcion texto_invertido = Invertir(texto_)
 	
 	texto_invertido = ""
+	
 	para x = Longitud(texto_)-1 hasta 0 con paso -1
 		texto_invertido = texto_invertido + Subcadena(texto_,x,x)
 	FinPara
@@ -466,4 +477,109 @@ Funcion numero_base_cambiada = Cambio_base(numero_texto_evaluar,base_deseada)
 	
 	numero_base_cambiada = Invertir(numero_base_cambiada)
 FinFuncion
+
+
+
+
+//////////////////////////////////////////////////////////////////
+//                                                              //
+//         converitir numero en 10 a una base 16                //
+//                                                              //
+//////////////////////////////////////////////////////////////////
+
+
+Funcion numero_hexa = Hexa_(numero_texto_evaluar)
 	
+	
+	//
+	numero_base_cambiada = ""
+	definir sobrante como real
+	definir residuo ,filtro como real
+	Definir guardar_sobrante ,hexa como caracter // guarda los datos  
+	
+	// convierte el texo a numero 
+	residuo = ConvertirANumero(numero_texto_evaluar)
+	hexa = "" // inicia hexa 
+	Repetir
+		
+		sobrante = residuo mod 16 // hace la divicion modular para conseguir residuo 
+		
+		si sobrante > 10 // si es valor mayor a sobrante solo lo guarda
+			guardar_sobrante = guardar_sobrante + "@"+convertirAtexto(sobrante)
+		SiNo //lo guarda para pero con un 0 adelane 
+			guardar_sobrante = guardar_sobrante + "@"+"0"+convertirAtexto(sobrante)
+			
+		FinSi
+		// divide 
+		residuo = trunc(residuo/16)
+	Hasta Que residuo <= 16 // hasta que sea menor a 16
+	
+	
+	si residuo > 10//vemos si el residuo es mayor a 9
+		guardar_sobrante = guardar_sobrante + "@"+convertirAtexto(residuo)
+	SiNo
+		guardar_sobrante = guardar_sobrante + "@"+"0"+convertirAtexto(residuo)
+	FinSi
+	
+	
+	//LA ARROBA ES PARA DETERMINAR DONDE COMIENZA EL NUMERO SIMPLE SERA DE 2 DIGITOS 
+	Para x = 0 Hasta Longitud(guardar_sobrante)-1 Con Paso 1
+		
+		si Subcadena(guardar_sobrante,x,x) == "@"
+			//Imprimir Subcadena(guardar_sobrante,x+1,x+2)
+			filtro = ConvertirANumero(Subcadena(guardar_sobrante,x+1,x+2))
+			//Imprimir filtro
+			
+			
+			//CAMBIA EL VALOR MAYORES DE 10 POR LETRAS 
+			Segun filtro
+				
+				caso 10:
+					hexa = hexa + "A"
+				Caso 11:
+					hexa = hexa + "B"
+				Caso 12:
+					hexa = hexa + "C"
+				Caso 13:
+					hexa = hexa + "D"
+				Caso 14:
+					hexa = hexa + "E"
+				Caso 15:
+					hexa = hexa + "F"
+				De Otro Modo:
+					
+					
+					hexa = hexa + ConvertirATexto(filtro)
+			FinSegun
+		FinSi
+	FinPara
+	
+	//IVIERTO EL RESULTADO 
+	hexa = Invertir(hexa)
+	numero_hexa = hexa
+	
+FinFuncion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

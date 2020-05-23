@@ -337,7 +337,7 @@ Algoritmo cambio_de_base
 							
 							respuesta[1] = Cambio_base(Hexa_decimal(respuesta[0]),8)
 							
-							mensaje("El numero en octal en octal es "+respuesta[1]) 
+							mensaje("El numero en hexadecimal en octal es "+respuesta[1]) 
 							Imprimir "presione Enter para continuar "
 							leer continuar 
 							Limpiar Pantalla
@@ -396,6 +396,102 @@ Algoritmo cambio_de_base
 				//      hexadecimal    //
 				//                     //
 				/////////////////////////
+				
+				Repetir
+					
+					mensaje("Conversion de hexadecimal a binario viceversa")
+					
+					
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//    Escoja que tipo de conversion quiere realizar    //"
+					Imprimir Sin Saltar"//                                                     //"
+					Imprimir Sin Saltar"//[1]conversion de hexadecimal a binario               //"
+					Imprimir Sin Saltar"//[2]conversion de binario a hexadecimal               //"
+					Imprimir Sin Saltar"//[3]volver al menu principal                          //"
+					Imprimir Sin Saltar"//                                                     //"
+					para a = 0 hasta 56 con paso 1
+						Imprimir  Sin Saltar  "/"
+					FinPara
+					
+					leer opciones 
+					salir_sub = Falso
+					Limpiar Pantalla
+					
+					/////////////////////////
+					//                     //
+					//  logica hexa        //
+					//      binaria        //
+					//                     //
+					/////////////////////////
+					
+					
+					Segun  opciones 
+						
+							caso "1":
+							
+							/////////////////////////
+							//                     //
+							//     hexa a binaria  //
+							//                     //
+							/////////////////////////
+								
+							Repetir
+								mensaje("Ingrese el numero en hexadecimal que desea convertir")
+								
+								leer respuesta[0]
+								
+								Si verificar(respuesta[0],23) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(respuesta[0],23) == Verdadero
+							
+							
+							respuesta[1] = Cambio_base(Hexa_decimal(respuesta[0]),2)
+							
+							mensaje("El numero en hexadecimal en binaria es "+respuesta[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
+							
+						Caso "2":
+							/////////////////////////
+							//                     //
+							//  binario a hexa     //
+							//                     //
+							/////////////////////////
+							
+							Repetir
+								mensaje("Ingrese el numero en binario que desea convertir")
+								
+								leer respuesta[0]
+								
+								Si verificar(respuesta[0],2) == falso
+									Limpiar Pantalla
+								FinSi
+							Hasta Que verificar(respuesta[0],2) == Verdadero
+							
+							
+							respuesta[1] = Hexa_(Decimal(respuesta[0],2))
+							
+							mensaje("El numero en binaria en hexadecimal es "+respuesta[1]) 
+							Imprimir "presione Enter para continuar "
+							leer continuar 
+							Limpiar Pantalla
+						Caso "3":
+							/////////////////////////
+							//                     //
+							//     salir a menu    //
+							//                     //
+							/////////////////////////
+							salir_sub = Verdadero
+							
+					FinSegun
+					
+					Limpiar Pantalla
+				Hasta Que salir_sub == Verdadero  
 				
 				
 				
